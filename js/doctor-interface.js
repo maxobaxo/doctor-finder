@@ -42,12 +42,12 @@ function displayDoctors(doctorsArr) {
         $('#practices-' + doctor.uid).append(
           practice.name +
           '<ul>' +
-          '<li>' +
-          practice.visit_address.street + '<br>' +
-          practice.visit_address.city + ', ' +
-          practice.visit_address.state + " " +
-          practice.visit_address.zip +
-          '</li>' +
+            '<li>' +
+            practice.visit_address.street + '<br>' +
+            practice.visit_address.city + ', ' +
+            practice.visit_address.state + " " +
+            practice.visit_address.zip +
+            '</li>' +
           '</ul>'
         );
       });
@@ -55,9 +55,28 @@ function displayDoctors(doctorsArr) {
   }
 }
 
+// function getPracticeLocations(doctorsArr) {
+//   var practicesArr = [];
+//   var practiceAddresses = [];
+//   doctorsArr.forEach(function(doctor) {
+//     doctor.practices.forEach(function(practice) {
+//       practicesArr.push(practice);
+//     });
+//
+//     practicesArr.forEach(function(practice) {
+//       var address = practice.visit_address.street + " " +
+//         practice.visit_address.city + ', ' +
+//         practice.visit_address.state + " " +
+//         practice.visit_address.zip;
+//       practiceAddresses.push(address);
+//     });
+//   });
+//   return practiceAddresses;
+// }
+
 $(document).ready(function() {
   var doctorModule = new DoctorModule();
-  doctorModule.createMap();
+  // doctorModule.createMap();
   $('#issue-form').submit(function(event) {
     event.preventDefault();
 
@@ -65,5 +84,6 @@ $(document).ready(function() {
     var sortOrder = $('#sort-order').val();
     var doctorName = $('#doctor-name').val();
     doctorModule.getDoctors(medicalIssue, displayDoctors, sortOrder, doctorName);
+    $('#map').show();
   });
 });

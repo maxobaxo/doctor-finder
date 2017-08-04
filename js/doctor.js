@@ -9,35 +9,64 @@ DoctorModule.prototype.getDoctors = function(medicalIssue, displayDoctors, sortO
   .then(function(response) {
     var doctorsArr = response.data;
     displayDoctors(doctorsArr);
+
+    var Portland = {lat: 45.5207, lng: -122.677397};
+    var mapObject = new google.maps.Map(document.getElementById('map'), {
+      zoom: 9,
+      center: Portland,
+      mapTypeId: 'terrain'
+    });
+
+    doctorsArr.forEach(function(doctor) {
+      var practicesArr = [];
+      doctor.practices.forEach(function(practice) {
+        practicesArr.push(practice);
+      });
+
+      practicesArr.forEach(function(practice) {
+        var address = practice.visit_address.street + " " +
+          practice.visit_address.city + ', ' +
+          practice.visit_address.state + " " +
+          practice.visit_address.zip;
+
+        $.get("http://maps.googleapis.com/maps/api/geocode/json?address=" + address)
+          .then(function(response) {
+            // console.log(response.results);
+            var latitude = response.results[0].geometry.location.lat;
+            var longitude = response.results[0].geometry.location.lng;
+            var marker = new google.maps.Marker({
+              position: {lat: latitude, lng: longitude},
+              map: mapObject
+            });
+            // console.log(response.lat);
+            // console.log(response.lng);
+          });
+      });
+    });
   })
   .fail(function(error){
     console.log("fail");
   });
 };
 
-DoctorModule.prototype.createMap = function() {
+// DoctorModule.prototype.createMap = function() {
+//
+// };
 
-  var Portland = {lat: 45.5207, lng: -122.677397};
-  var mapObject = new google.maps.Map(document.getElementById('map'), {
-    zoom: 9,
-    center: Portland,
-    mapTypeId: 'terrain'
-  });
-};
-
-DoctorModule.prototype.mapDoctors = function(address) {
-  $.get("http://maps.googleapis.com/maps/api/geocode/json?address=" + address)
-    .then(function(response) {
-      console.log(response.results);
-      var latitude = response.results[0].geometry.location.lat;
-      var longitude = response.results[0].geometry.location.lng;
-      var marker = new google.maps.Marker({
-        position: {lat: latitude, lng: longitude},
-        map: mapObject
-      });
-      // console.log(response.lat);
-      // console.log(response.lng);
-    });
-};
+// DoctorModule.prototype.callGeocoder = function(address) {
+//   $.get("http://maps.googleapis.com/maps/api/geocode/json?address=" + address)
+//     .then(function(response) {
+//
+//       console.log(response.results);
+//       var latitude = response.results[0].geometry.location.lat;
+//       var longitude = response.results[0].geometry.location.lng;
+//       var marker = new google.maps.Marker({
+//         position: {lat: latitude, lng: longitude},
+//         map: mapObject
+//       });
+//       // console.log(response.lat);
+//       // console.log(response.lng);
+//     });
+// };
 
 exports.doctorModule = DoctorModule;
