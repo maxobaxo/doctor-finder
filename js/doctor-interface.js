@@ -2,9 +2,9 @@ var apiKey = require('./../.env').apiKey;
 var DoctorModule = require('./../js/doctor.js').doctorModule;
 
 function displayDoctors(doctorsArr) {
-  for (i = 0; i < doctorsArr.length; i++) {
-    $('#doctor-list').append('<li>' + doctorsArr[i] + '</li>');
-  }
+  doctorsArr.forEach(function(doctor) {
+    $('#doctor-list').append('<li>' + doctor.profile.first_name + " " + doctor.profile.last_name + '</li>');
+  });
 }
 
 $(document).ready(function() {
