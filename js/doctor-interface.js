@@ -1,9 +1,11 @@
 var apiKey = require('./../.env').apiKey;
 var DoctorModule = require('./../js/doctor.js').doctorModule;
 
-// function displayDoctors() {
-//
-// };
+function displayDoctors(doctorsArr) {
+  for (i = 0; i < doctorsArr.length; i++) {
+    $('#doctor-list').append('<li>' + doctorsArr[i] + '</li>');
+  }
+}
 
 $(document).ready(function() {
   $('#issue-form').submit(function(event) {
@@ -11,6 +13,6 @@ $(document).ready(function() {
 
     var doctorModule = new DoctorModule();
     var medicalIssue = $('#issue-input').val();
-    doctorModule.getDoctors(medicalIssue);
+    doctorModule.getDoctors(medicalIssue, displayDoctors);
   });
 });
