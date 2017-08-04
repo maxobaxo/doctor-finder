@@ -1,9 +1,42 @@
 var apiKey = require('./../.env').apiKey;
 var DoctorModule = require('./../js/doctor.js').doctorModule;
 
+// function displayPractices(doctorsArr) {
+//     var doctorsArr
+// });
+
 function displayDoctors(doctorsArr) {
   doctorsArr.forEach(function(doctor) {
-    $('#doctor-list').append('<li>' + doctor.profile.first_name + " " + doctor.profile.last_name + '</li>');
+    $('#doctor-list').append(
+      '<div class="well">' +
+        '<h3>' +
+        doctor.profile.first_name + " " + doctor.profile.last_name +
+        '</h3>' +
+        '<h4> Primary Specialty: ' + doctor.specialties[0].name + '</h4>' +
+        '<h4> Practices:</h4>' +
+        '<div id="practices-' + doctor.uid +'">' + '</div>' +
+      '</div>'
+    );
+
+    var practicesArr = [];
+    doctor.practices.forEach(function(practice) {
+      console.log(practice);
+      practicesArr.push(practice);
+    });
+
+    practicesArr.forEach(function(practice) {
+      $('#practices-' + doctor.uid).append(
+      practice.name +
+      '<ul>' +
+        '<li>' +
+          practice.visit_address.street + '<br>' +
+          practice.visit_address.city + ', ' +
+          practice.visit_address.state + " " +
+          practice.visit_address.zip +
+        '</li>' +
+      '</ul>'
+      );
+    });
   });
 }
 
