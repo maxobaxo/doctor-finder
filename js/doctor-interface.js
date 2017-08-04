@@ -26,8 +26,8 @@ function displayDoctors(doctorsArr) {
               '<div id="practices-' + doctor.uid +'">' + '</div>' +
             '</div>' +
             '<div class="col-md-6">' +
-              '<div id="map">' +
-              '</div>' +
+              // '<div id="map">' +
+              // '</div>' +
             '</div>' +
           '</div>' +
         '</div>'
@@ -56,12 +56,14 @@ function displayDoctors(doctorsArr) {
 }
 
 $(document).ready(function() {
+  var doctorModule = new DoctorModule();
+  doctorModule.createMap();
   $('#issue-form').submit(function(event) {
     event.preventDefault();
 
-    var doctorModule = new DoctorModule();
     var medicalIssue = $('#issue-input').val();
     var sortOrder = $('#sort-order').val();
-    doctorModule.getDoctors(medicalIssue, displayDoctors, sortOrder);
+    var doctorName = $('#doctor-name').val();
+    doctorModule.getDoctors(medicalIssue, displayDoctors, sortOrder, doctorName);
   });
 });
