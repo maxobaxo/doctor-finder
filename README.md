@@ -44,6 +44,11 @@ _Open the Program_
 * It can create a map of the Portland area.
 * It can create a marker on the map for each practice address returned by the user's search.
 
+## Known Bugs
+* If the user submits an empty form, only 5 results show up, instead of the entire list of Portland-area providers.
+* There is a slight delay in the map load-time upon form submission.
+
+
 ## Technologies Used
 HTML, CSS, JavaScript, Git, Node.js, Gulp, Bower, Bootstrap, jQuery
 
