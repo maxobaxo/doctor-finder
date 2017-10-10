@@ -38,7 +38,16 @@ function displayDoctors(doctorsArr) {
         practicesArr.push(practice);
       });
 
-      practicesArr.forEach(function(practice) {
+      finalPractices = [practicesArr[0]];
+      for (var i = 1; i < practicesArr.length; i++) {
+        if (practicesArr[i].distance === practicesArr[i-1].distance) {
+          console.log(practicesArr[i].name + ' is a dupe of ' + practicesArr[i-1].name);
+        } else {
+          finalPractices.push(practicesArr[i]);
+        }
+      };
+
+      finalPractices.forEach(function(practice) {
         $('#practices-' + doctor.uid).append(
           practice.name +
           '<ul>' +
