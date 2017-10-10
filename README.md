@@ -9,8 +9,8 @@ The Doctor Finder empowers users to find doctors that specialize in or treat a g
 
 <details>
 <summary>View Screenshots</summary>
-  ![formAndMap](/assets/formandmap.png)
-  ![results](/assets/results.png)
+  ![formAndMap](/assets/formandmap.png?raw=true)
+  ![results](/assets/results.png?raw=true)
 </details>
 
 ## Required Programs
