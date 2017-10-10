@@ -5,7 +5,7 @@ by Max Scher
 ## Description
 The Doctor Finder empowers users to find doctors that specialize in or treat a given ailment or issue simply by submitting said issue.
 
-![homepageScreenshot](/assets/homepage.png?raw=true)
+![homepageScreenshot](/assets/homepagePNW.png?raw=true)
 
 <details>
 <summary>View Screenshots</summary>
