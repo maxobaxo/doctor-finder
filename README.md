@@ -36,13 +36,8 @@ _Open the Program_
 
 ## Specifications
 * It can return a list of doctors when the user inputs a medical issue.
-  * Example Input: "rash"
+  * Example Input: "Rash"
   * Example Output: "Susan Koch, Sean Rash"
-* It can return the addresses of a doctor's practice.
-  * Example Input: "cold"
-  * Example Output: "Susan Koch | Kaiser Permanente Sunnybrook Medical Office | 9900 SE Sunnyside Rd | Clackamas, OR 97015"
-* It can create a map of the Portland area.
-* It can create a marker on the map for each practice address returned by the user's search.
 
 ## Known Bugs
 * If the user submits an empty form, only 5 results show up, instead of the entire list of Portland-area providers.
