@@ -9,13 +9,13 @@ The Doctor Finder empowers users to find doctors that specialize in or treat a g
 
 <details>
 <summary>View Screenshots</summary>
-  ![formAndMap](/assets/formandmap.png?raw=true)
-  ![results](/assets/results.png?raw=true)
+<br/>
+  <img src='/assets/formandmap.png?'/>
+  <img src='/assets/results.png'/>
 </details>
 
 ## Required Programs
 * Node.js [(Installation instructions)](https://www.learnhowtoprogram.com/javascript/getting-started-with-javascript-2f9a73dc-b7f5-4a22-9101-e69d49f552ac/installing-node-js)
-
 * Sass [(Installation instructions)](https://www.learnhowtoprogram.com/javascript/modern-js-apps/sass-with-gulp)
 
 ## Setup
