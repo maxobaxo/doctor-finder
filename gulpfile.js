@@ -94,7 +94,11 @@ gulp.task("serve", ["build"], function() {
  * Push build to gh-pages
  */
 gulp.task("deploy", ["build"], function() {
-  return gulp.src("./build/**/*").pipe(deploy());
+  return gulp.src("./build/**/*").pipe(
+    deploy({
+      branch: "master"
+    })
+  );
 });
 
 gulp.task("jsBuild", ["jsBrowserify", "jshint"], function() {
