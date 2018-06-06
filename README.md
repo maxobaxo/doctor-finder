@@ -3,7 +3,7 @@
 ### Utilize BetterDoctor API to create a find-a-doctor web application
 
 ## Description
-The Doctor Finder empowers users to find doctors that specialize in or treat a given ailment or issue simply by submitting said issue.
+The Doctor Finder empowers users to find doctors that specialize in or treat a given ailment or issue simply by submitting said issue. A live version of this web app has been [deployed here](https://doctor-finder-5dc0f.firebaseapp.com/) via firebase.
 
 ![homepageScreenshot](/assets/homepagePNW.png?raw=true)
 
